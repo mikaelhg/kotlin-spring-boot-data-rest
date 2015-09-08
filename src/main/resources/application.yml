@@ -1,0 +1,41 @@
+spring.jackson.serialization.INDENT_OUTPUT: true
+
+logging.level:
+  "org.springframework": ERROR
+  "org.elasticsearch": ERROR
+  "org.hibernate": ERROR
+  "io.undertow": ERROR
+  "org.xnio": ERROR
+  "org.apache": ERROR
+
+spring:
+  main:
+    show-banner: false
+    log-startup-info: true
+  datasource:
+    platform: postgresql
+    url: "jdbc:postgresql:tweets"
+
+#spring.jpa.database-platform: org.hibernate.dialect.Post
+
+spring.jpa.hibernate.ddl-auto: update
+
+---
+spring.profiles: test
+
+server:
+  port: 0
+  address: 127.0.0.1
+  sessionTimeout: 0
+
+management.port: -1
+
+spring:
+  main:
+    show-banner: false
+    log-startup-info: true
+  datasource:
+    platform: h2
+    url: "jdbc:h2:mem:"
+
+spring.jpa.hibernate.ddl-auto: create-drop
