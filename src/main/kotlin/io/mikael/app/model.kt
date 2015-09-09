@@ -3,12 +3,12 @@ package io.mikael.app
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
-import javax.persistence.EmbeddedId
 import javax.persistence.Entity
+import javax.persistence.Id
 import javax.persistence.Table
 
 @Entity @Table(name = "restaurants")
-data class Restaurant(@EmbeddedId var id: Key?,
+data class Restaurant(@Id var id: Long?,
                       var name: String?, var location: String?, var lat: Double?, var lng: Double?) {
 
     constructor() : this(null, null, null, null, null)
@@ -16,7 +16,7 @@ data class Restaurant(@EmbeddedId var id: Key?,
 }
 
 @Entity @Table(name = "menus")
-data class Menu(@EmbeddedId var id: Key?,
+data class Menu(@Id var id: Long?,
                 var restaurantId: Long?, var date: LocalDate?, var text: String?) {
 
     constructor() : this(null, null, null, null)
@@ -24,8 +24,8 @@ data class Menu(@EmbeddedId var id: Key?,
 }
 
 @RepositoryRestResource(path = "restaurants")
-public interface RestaurantRepository : JpaRepository<Restaurant, Key>
+public interface RestaurantRepository : JpaRepository<Restaurant, Long>
 
 @RepositoryRestResource(path = "menus")
-public interface MenuRepository : JpaRepository<Menu, Key>
+public interface MenuRepository : JpaRepository<Menu, Long>
 

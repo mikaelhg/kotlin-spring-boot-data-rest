@@ -2,11 +2,9 @@ package io.mikael.app
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.builder.SpringApplicationBuilder
-import org.springframework.context.annotation.Import
 import kotlin.platform.platformStatic as static
 
 @SpringBootApplication
-@Import(RepoConfiguration::class)
 open public class Application {
 
     companion object Runner {
