@@ -1,7 +1,5 @@
 package io.mikael.app
 
-import com.fasterxml.jackson.annotation.JsonGetter
-import com.fasterxml.jackson.annotation.JsonSetter
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
@@ -14,16 +12,6 @@ data class Restaurant(@EmbeddedId var id: Key?,
                       var name: String?, var location: String?, var lat: Double?, var lng: Double?) {
 
     constructor() : this(null, null, null, null, null)
-
-    @JsonGetter("id")
-    public fun jsonGetId() : Long? {
-        return id?.getId()
-    }
-
-    @JsonSetter("id")
-    public fun jsonSetId(newId : Long?) {
-        id = Key(newId)
-    }
 
 }
 
