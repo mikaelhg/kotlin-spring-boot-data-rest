@@ -14,14 +14,20 @@ public class GenericKeyConverter implements GenericConverter {
     public Set<ConvertiblePair> getConvertibleTypes() {
         return ImmutableSet.of(
                 new ConvertiblePair(String.class, Key.class),
-                new ConvertiblePair(Key.class, String.class));
+                new ConvertiblePair(Key.class, String.class),
+                new ConvertiblePair(Long.class, Key.class),
+                new ConvertiblePair(Key.class, Long.class));
     }
     @Override
-    public Object convert(final Object source, final TypeDescriptor sourceType, final TypeDescriptor targetType) {
-        if (sourceType.getType() == String.class && targetType.getType() == Key.class) {
+    public Object convert(final Object source, final TypeDescriptor st, final TypeDescriptor tt) {
+        if (st.getType() == String.class && tt.getType() == Key.class) {
             return new Key(Long.parseLong(source.toString()));
-        } else if (sourceType.getType() == Key.class && targetType.getType() == String.class) {
+        } else if (st.getType() == Key.class && tt.getType() == String.class) {
             return ((Key)source).getId().toString();
+        } else if (st.getType() == Long.class && tt.getType() == Key.class) {
+            return new Key((Long)source);
+        } else if (st.getType() == Key.class && tt.getType() == Long.class) {
+            return ((Key) source).getId();
         }
         return null;
     }

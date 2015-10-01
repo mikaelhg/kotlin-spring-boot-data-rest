@@ -18,7 +18,7 @@
     <properties>
         <java.version>1.8</java.version>
         <jackson.version>2.6.1</jackson.version>
-        <kotlin.version>0.12.1230</kotlin.version>
+        <kotlin.version>0.14.449</kotlin.version>
     </properties>
 
     <repositories>
@@ -54,13 +54,6 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-jdbc</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
 

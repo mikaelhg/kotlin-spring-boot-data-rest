@@ -13,12 +13,10 @@ spring:
     show-banner: false
     log-startup-info: true
   datasource:
-    platform: postgresql
-    url: "jdbc:postgresql:tweets"
+    platform: h2
+    url: "jdbc:h2:mem:"
 
-#spring.jpa.database-platform: org.hibernate.dialect.Post
-
-spring.jpa.hibernate.ddl-auto: update
+spring.jpa.hibernate.ddl-auto: create-drop
 
 ---
 spring.profiles: test
