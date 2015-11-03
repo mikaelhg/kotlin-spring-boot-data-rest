@@ -1,18 +1,14 @@
 package io.mikael.app
 
+import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.builder.SpringApplicationBuilder
-import kotlin.platform.platformStatic as static
 
 @SpringBootApplication
 open public class Application {
 
     companion object Runner {
-        static public fun main(args: Array<String>) {
-            SpringApplicationBuilder(Application::class.java)
-                    .registerShutdownHook(true)
-                    .build()
-                    .run(*args)
+        @JvmStatic public fun main(args: Array<String>) {
+            SpringApplication.run(Application::class.java, *args)
         }
     }
 

@@ -1,1 +1,1 @@
-INSERT INTO restaurants (id, name, location, lat, lng) VALUES (1, 'test', 'Helsinki', 123, 456);
+INSERT INTO restaurants (name, location, lat, lng) VALUES ('test', 'Helsinki', 123, 456);

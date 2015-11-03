@@ -12,13 +12,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.0.M5</version>
+        <version>1.3.0.RC1</version>
     </parent>
 
     <properties>
         <java.version>1.8</java.version>
-        <jackson.version>2.6.1</jackson.version>
-        <kotlin.version>0.14.449</kotlin.version>
+        <jackson.version>2.6.2</jackson.version>
+        <kotlin.version>1.0.0-beta-1103</kotlin.version>
     </properties>
 
     <repositories>
@@ -54,13 +54,6 @@
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-reflect</artifactId>
-            <version>${kotlin.version}</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-jdbc</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
 

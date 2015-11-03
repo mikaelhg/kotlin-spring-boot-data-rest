@@ -8,23 +8,8 @@ logging.level:
   "org.xnio": ERROR
   "org.apache": ERROR
 
-spring:
-  main:
-    show-banner: false
-    log-startup-info: true
-  datasource:
-    platform: postgresql
-    url: "jdbc:postgresql:tweets"
-
-#spring.jpa.database-platform: org.hibernate.dialect.Post
-
-spring.jpa.hibernate.ddl-auto: update
-
----
-spring.profiles: test
-
 server:
-  port: 0
+  port: 8080
   address: 127.0.0.1
   sessionTimeout: 0
 
@@ -33,7 +18,6 @@ management.port: -1
 spring:
   main:
     show-banner: false
-    log-startup-info: true
   datasource:
     platform: h2
     url: "jdbc:h2:mem:"
