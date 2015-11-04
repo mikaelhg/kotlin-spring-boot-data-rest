@@ -19,6 +19,7 @@
         <java.version>1.8</java.version>
         <jackson.version>2.6.2</jackson.version>
         <kotlin.version>1.0.0-beta-1103</kotlin.version>
+        <hibernate.version>5.0.3.Final</hibernate.version>
     </properties>
 
     <repositories>
@@ -89,12 +90,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.jadira.usertype</groupId>
-            <artifactId>usertype.extended</artifactId>
-            <version>4.0.0.GA</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson.version}</version>
@@ -103,11 +98,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
         </dependency>
 
         <dependency>
