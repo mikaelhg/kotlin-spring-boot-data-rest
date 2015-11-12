@@ -4,10 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
 import javax.persistence.*
+import javax.persistence.GenerationType.IDENTITY
 
 @Entity @Table(name = "restaurants")
 data class Restaurant(
-    @Id @GeneratedValue
+
+    @Id @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null,
 
     var name: String? = null,
@@ -18,13 +20,15 @@ data class Restaurant(
 
     var lng: Double? = null,
 
-    @OneToMany(mappedBy = "restaurant", targetEntity = Menu::class)
-    var menus: List<Menu>? = null
+    // use MutableList instead of List to work around Kotlin bug KT-9890
+    @OneToMany(mappedBy = "restaurant")
+    var menus: MutableList<Menu>? = null
 )
 
 @Entity @Table(name = "menus")
 data class Menu(
-    @Id @GeneratedValue
+
+    @Id @GeneratedValue(strategy = IDENTITY)
     var id: Long? = null,
 
     @ManyToOne
@@ -32,6 +36,8 @@ data class Menu(
     var restaurant: Restaurant? = null,
 
     var date: LocalDate? = null,
+
+    var title: String? = null,
 
     var text: String? = null
 )
