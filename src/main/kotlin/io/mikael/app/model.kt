@@ -5,6 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
 import javax.persistence.*
 import javax.persistence.GenerationType.IDENTITY
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.*
 
 @Entity @Table(name = "restaurants")
 data class Restaurant(
@@ -35,6 +36,8 @@ data class Menu(
     @JoinColumn(name = "restaurant_id")
     var restaurant: Restaurant? = null,
 
+    @Column(columnDefinition = "DATE")
+    @Convert(converter = LocalDateConverter::class)
     var date: LocalDate? = null,
 
     var title: String? = null,
