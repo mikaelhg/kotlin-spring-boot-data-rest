@@ -5,7 +5,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
 import javax.persistence.*
 import javax.persistence.GenerationType.IDENTITY
-import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters.*
 
 @Entity @Table(name = "restaurants")
 data class Restaurant(
@@ -23,7 +22,7 @@ data class Restaurant(
 
     // use MutableList instead of List to work around Kotlin bug KT-9890
     @OneToMany(mappedBy = "restaurant")
-    var menus: MutableList<Menu>? = null
+    var menus: List<Menu>? = null
 )
 
 @Entity @Table(name = "menus")
@@ -37,7 +36,6 @@ data class Menu(
     var restaurant: Restaurant? = null,
 
     @Column(columnDefinition = "DATE")
-    @Convert(converter = LocalDateConverter::class)
     var date: LocalDate? = null,
 
     var title: String? = null,
@@ -50,4 +48,3 @@ public interface RestaurantRepository : JpaRepository<Restaurant, Long>
 
 @RepositoryRestResource(path = "menus")
 public interface MenuRepository : JpaRepository<Menu, Long>
-
