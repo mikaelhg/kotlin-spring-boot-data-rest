@@ -20,7 +20,6 @@ data class Restaurant(
 
     var lng: Double? = null,
 
-    // use MutableList instead of List to work around Kotlin bug KT-9890
     @OneToMany(mappedBy = "restaurant")
     var menus: List<Menu>? = null
 )
@@ -44,7 +43,7 @@ data class Menu(
 )
 
 @RepositoryRestResource(path = "restaurants")
-public interface RestaurantRepository : JpaRepository<Restaurant, Long>
+interface RestaurantRepository : JpaRepository<Restaurant, Long>
 
 @RepositoryRestResource(path = "menus")
-public interface MenuRepository : JpaRepository<Menu, Long>
+interface MenuRepository : JpaRepository<Menu, Long>

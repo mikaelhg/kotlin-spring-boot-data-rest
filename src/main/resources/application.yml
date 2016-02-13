@@ -11,13 +11,10 @@ logging.level:
 server:
   port: 8080
   address: 127.0.0.1
-  sessionTimeout: 0
 
 management.port: -1
 
 spring:
-  main:
-    show-banner: false
   datasource:
     platform: h2
     url: "jdbc:h2:mem:"
