@@ -1,12 +1,14 @@
 spring.jackson.serialization.INDENT_OUTPUT: true
 
 logging.level:
-  "org.springframework": ERROR
-  "org.elasticsearch": ERROR
-  "org.hibernate": ERROR
-  "io.undertow": ERROR
-  "org.xnio": ERROR
-  "org.apache": ERROR
+  org.springframework: ERROR
+  org.elasticsearch: ERROR
+  org.hibernate: ERROR
+  io.undertow: ERROR
+  org.xnio: ERROR
+  org.apache: ERROR
+  org.hibernate.SQL: DEBUG
+  org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 server:
   port: 8080

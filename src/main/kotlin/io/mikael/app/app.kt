@@ -17,7 +17,7 @@ class HelloController
 {
 
     @RequestMapping("/hello")
-    fun index() = helloService.hello()
+    fun hello() = helloService.hello()
 
     @RequestMapping("/count")
     fun count() = helloService.count()

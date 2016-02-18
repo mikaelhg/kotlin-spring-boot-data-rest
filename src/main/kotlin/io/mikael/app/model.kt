@@ -42,8 +42,8 @@ data class Menu(
     var text: String? = null
 )
 
-@RepositoryRestResource(path = "restaurants")
+@RepositoryRestResource
 interface RestaurantRepository : JpaRepository<Restaurant, Long>
 
-@RepositoryRestResource(path = "menus")
+@RepositoryRestResource
 interface MenuRepository : JpaRepository<Menu, Long>

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-open class HelloService
+class HelloService
     @Autowired constructor(val restaurantRepository: RestaurantRepository)
 {
 
