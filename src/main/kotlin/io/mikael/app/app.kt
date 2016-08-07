@@ -3,7 +3,7 @@ package io.mikael.app
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @SpringBootApplication
@@ -16,10 +16,10 @@ class HelloController
     @Autowired constructor(val helloService: HelloService)
 {
 
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     fun hello() = helloService.hello()
 
-    @RequestMapping("/count")
+    @GetMapping("/count")
     fun count() = helloService.count()
 
 }

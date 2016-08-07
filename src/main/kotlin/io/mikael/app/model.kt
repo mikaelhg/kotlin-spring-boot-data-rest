@@ -34,11 +34,12 @@ data class Menu(
     @JoinColumn(name = "restaurant_id")
     var restaurant: Restaurant? = null,
 
-    @Column(columnDefinition = "DATE")
+    @Column(name = "menu_date", columnDefinition = "DATE")
     var date: LocalDate? = null,
 
     var title: String? = null,
 
+    @Column(name = "menu_text")
     var text: String? = null
 )
 
