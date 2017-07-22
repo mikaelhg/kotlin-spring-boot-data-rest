@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @SpringBootApplication
-open class Application {
-
-}
+open class Application
 
 @RestController
 class HelloController(val helloService: HelloService) {
