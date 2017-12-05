@@ -27,7 +27,31 @@ class Restaurant {
 
     override fun toString() = "Restaurant($id, $name, $location, $lat, $lng, ${menus?.map { it.id }})"
 
-    override fun hashCode() = if (id == null) -999 else id!!.toInt()
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Restaurant
+
+        if (id != other.id) return false
+        if (name != other.name) return false
+        if (location != other.location) return false
+        if (lat != other.lat) return false
+        if (lng != other.lng) return false
+        if (menus != other.menus) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = id?.hashCode() ?: 0
+        result = 31 * result + (name?.hashCode() ?: 0)
+        result = 31 * result + (location?.hashCode() ?: 0)
+        result = 31 * result + (lat?.hashCode() ?: 0)
+        result = 31 * result + (lng?.hashCode() ?: 0)
+        return result
+    }
+
 }
 
 @Entity
@@ -52,7 +76,29 @@ class Menu {
 
     override fun toString() = "Menu($id, ${restaurant?.id}, $date, $title, $text)"
 
-    override fun hashCode() = if (id == null) -999 else id!!.toInt()
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Menu
+
+        if (id != other.id) return false
+        if (date != other.date) return false
+        if (title != other.title) return false
+        if (text != other.text) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = id?.hashCode() ?: 0
+        result = 31 * result + (restaurant?.id?.hashCode() ?: 0)
+        result = 31 * result + (date?.hashCode() ?: 0)
+        result = 31 * result + (title?.hashCode() ?: 0)
+        result = 31 * result + (text?.hashCode() ?: 0)
+        return result
+    }
+
 }
 
 @RepositoryRestResource
