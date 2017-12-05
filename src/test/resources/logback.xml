@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework" level="ERROR" />
+    <logger name="org.eclipse" level="ERROR" />
+    <logger name="io.mikael" level="DEBUG" />
+    <root level="INFO" />
+</configuration>
