@@ -6,15 +6,14 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.DEFINED_PORT
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
-import org.springframework.http.HttpMethod
 import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
-@SpringBootTest(webEnvironment = DEFINED_PORT, properties = arrayOf("server.port=39797"))
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 class InsertTest {
 
     @Autowired
@@ -31,12 +30,9 @@ class InsertTest {
     }
 
     @Test
-    fun insertTest() {
-        val newMenuUri = restTemplate.postForLocation("/menus", jelly)
-
-        val httpEntity = HttpEntity("/restaurants/1", uriList)
-        restTemplate.exchange("$newMenuUri/restaurant", HttpMethod.PUT, httpEntity, String::class.java)
-
+    fun `create a menu and connect it to a restaurant`() {
+        val loc = restTemplate.postForLocation("/menus", jelly)
+        restTemplate.put("$loc/restaurant", HttpEntity("/restaurants/1", uriList))
         val m2 = restTemplate.getForObject("/restaurants/1/menus/2", Menu::class.java)
         Assert.assertEquals(jelly["date"], m2.date.toString())
     }
