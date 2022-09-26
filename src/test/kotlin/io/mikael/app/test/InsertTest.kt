@@ -1,18 +1,15 @@
 package io.mikael.app.test
 
 import io.mikael.app.Menu
-import org.junit.Assert
-import org.junit.Test
-import org.junit.runner.RunWith
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
-import org.springframework.test.context.junit4.SpringRunner
 
-@RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class InsertTest {
 
@@ -34,7 +31,7 @@ class InsertTest {
         val loc = restTemplate.postForLocation("/menus", jelly)
         restTemplate.put("$loc/restaurant", HttpEntity("/restaurants/1", uriList))
         val m2 = restTemplate.getForObject("/restaurants/1/menus/2", Menu::class.java)
-        Assert.assertEquals(jelly["date"], m2.date.toString())
+        Assertions.assertEquals(jelly["date"], m2.date.toString())
     }
 
 }

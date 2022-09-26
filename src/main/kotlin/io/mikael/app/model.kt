@@ -3,8 +3,8 @@ package io.mikael.app
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.time.LocalDate
-import javax.persistence.*
-import javax.persistence.GenerationType.IDENTITY
+import jakarta.persistence.*
+import jakarta.persistence.GenerationType.IDENTITY
 
 @Entity
 @Table(name = "restaurants")
